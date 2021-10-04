@@ -3,6 +3,7 @@
 from rich import print
 import argparse
 from functions import basic_scan, whois
+from sys import argv
 
 
 def banner():
@@ -40,6 +41,10 @@ def menu():
     print("[bold red][Q] QUIT !!![/bold red]")
 
 
+def scan_type(stype):
+    print(" [[bold green]S[/bold green]] Scan Type: [[bold green]{}[/bold green]]\n".format(stype))
+
+
 def main():
     # Parsing Arguments
     parser = argparse.ArgumentParser(
@@ -47,19 +52,20 @@ def main():
     parser.add_argument(
         "-d", "--domain", help="Specify Target Domain", required=True)
     parser.add_argument(
-        "-b", "--basic", help="Basic Recon on the Domain (Site Title, IP Address, CMS e.t.c.)", action="store_true")
-    parser.add_argument(
         "-w", "--whois", help="Extract Whois Information for The Target Domain.", action="store_true")
     args = parser.parse_args()
+    if (len(argv) == 3):
+        banner
     banner()
     print(
         "                            [[bold green]+[/bold green]] Target Domain: [bold green]{}[/bold green]\n".format(args.domain))
     print(" [[bold green]*[/bold green]] [bold green]Scanning Started...[/bold green]")
-    print(" [[bold green]S[/bold green]] Scan Type: [[bold green]Basic Scan[/bold green]]\n")
-    if(args.basic):
-        basic_scan(args.domain)
-    elif(args.whois):
+    if(args.whois):
+        scan_type('Whois Recon')
         whois(args.domain)
+    else:
+        scan_type('Basic Scan')
+        basic_scan(args.domain)
 
 
 if __name__ == "__main__":
