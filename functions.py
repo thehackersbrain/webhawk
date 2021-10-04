@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 import socket
 
 
-def check_protocol(domain):
+def basic_scan(domain):
     url = 'http://{}'.format(domain)
     req = requests.get(url)
     if("https" not in req.url):
@@ -26,3 +26,21 @@ def check_protocol(domain):
     rreq = requests.get(url+'/robots.txt')
     if(rreq.status_code != 404):
         print("[[bold yellow]+[/bold yellow]] [bold cyan]Robots.txt[/bold cyan]: [bold green]Found[/bold green]")
+    print(
+        "------------------------------------[ [bold green]Headers[/bold green] ]------------------------------------")
+    for i in req.headers:
+        print("{}: {}".format(i, req.headers[i]))
+    print(
+        "--------------------------------[ [bold green]End of Headers[/bold green] ]------------------------------------")
+
+
+def whois(domain):
+    url = "https://www.whois.com/whois/{}".format(domain)
+    req = requests.get(url)
+    soup = BeautifulSoup(req.text, 'html.parser')
+    data = soup.find('pre', {'id': 'registryData'})
+    print(
+        "------------------------------------[ [bold green]Whois Information[/bold green] ]------------------------------------")
+    print(data.get_text())
+    print(
+        "---------------------------------[ [bold green]End of the Information[/bold green] ]------------------------------------")

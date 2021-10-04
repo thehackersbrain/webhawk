@@ -2,7 +2,7 @@
 
 from rich import print
 import argparse
-from functions import check_protocol
+from functions import basic_scan, whois
 
 
 def banner():
@@ -46,13 +46,20 @@ def main():
         description="WebHawk - Web Recon Framework")
     parser.add_argument(
         "-d", "--domain", help="Specify Target Domain", required=True)
+    parser.add_argument(
+        "-b", "--basic", help="Basic Recon on the Domain (Site Title, IP Address, CMS e.t.c.)", action="store_true")
+    parser.add_argument(
+        "-w", "--whois", help="Extract Whois Information for The Target Domain.", action="store_true")
     args = parser.parse_args()
     banner()
     print(
         "                            [[bold green]+[/bold green]] Target Domain: [bold green]{}[/bold green]\n".format(args.domain))
     print(" [[bold green]*[/bold green]] [bold green]Scanning Started...[/bold green]")
     print(" [[bold green]S[/bold green]] Scan Type: [[bold green]Basic Scan[/bold green]]\n")
-    check_protocol(args.domain)
+    if(args.basic):
+        basic_scan(args.domain)
+    elif(args.whois):
+        whois(args.domain)
 
 
 if __name__ == "__main__":
