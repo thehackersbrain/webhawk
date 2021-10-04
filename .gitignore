@@ -1,2 +1,6 @@
 env
 RED_HAWK
+menu.txt
+.vscode
+__pycache__
+*.txt
