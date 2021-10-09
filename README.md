@@ -5,10 +5,11 @@
 
 ## Description
 ![WebHawk Banner Image](https://raw.githubusercontent.com/thehackersbrain/webhawk/main/screenshots/webhawk.png?token=AIY2SQM2ACU5ZBBWXDLXCGDBMIGRG)
-**WebHawk** is a Web Recon framework written in Python3 by Gaurav Raj [TheHackersbrain](https://gauravraj.tech) which is originally inspired by **RED_HAWK** tool which is not maintained by now.
+**WebHawk** is a Web Recon framework written in Python3 by Gaurav Raj [TheHackersbrain](https://gauravraj.tech)
+Which was originally inspired by **RED_HAWK** tool which is not maintained by now.
 
 ## Version
-**Webhawk 1.0.3**
+**Webhawk 1.0.5**
 
 
 ## Installation
