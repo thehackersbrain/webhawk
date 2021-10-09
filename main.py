@@ -3,7 +3,6 @@
 from rich import print
 import argparse
 from functions import basic_scan, whois, dnslookup, geoiplookup, subnetcalc, subdomains, nmapscan
-from sys import argv
 
 
 def banner():
