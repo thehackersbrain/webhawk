@@ -4,7 +4,7 @@ import requests
 from rich import print
 from bs4 import BeautifulSoup
 import socket
-from dependencies.subdomain.crtsh import crtsh
+from dependencies.subdomain.subdomains import subfinder
 
 
 def basic_scan(domain):
@@ -83,14 +83,11 @@ def subnetcalc(domain):
 
 
 def subdomains(domain):
-    url = 'https://api.hackertarget.com/hostsearch/?q={}'.format(domain)
-    req = requests.get(url)
-    subdomains = crtsh(domain)
+    subdomains = subfinder(domain)
     print(
         "------------------------------------[ [bold green]Subdomain Finder[/bold green] ]------------------------------------")
-    print(req.text)
     for i in subdomains:
-        print("{}".format(i))
+        print("[[bold green]+[/bold green]] {}".format(i))
     print(
         "------------------------------------[ [bold green]Subdomain Finder[/bold green] ]------------------------------------")
 
