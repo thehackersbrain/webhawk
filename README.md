@@ -6,4 +6,4 @@
 
 ## Version
 
-**Webhawk 1.0.0**
+**Webhawk 1.0.3**
