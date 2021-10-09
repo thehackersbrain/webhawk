@@ -43,13 +43,13 @@ python main.py -h
 	```bash
 	python main.py -d 'gauravraj.tech' -s
 	```
-	![Subdomain Enumeration]()
+	![Subdomain Enumeration](https://raw.githubusercontent.com/thehackersbrain/webhawk/main/screenshots/subdomain.png?token=AIY2SQKNBZVQQ6SC4CPVJSLBMIJS2)
 
 - Help Menu
 	```bash
 	python main.py -h
 	```
-	![Help Menu]()
+	![Help Menu](https://raw.githubusercontent.com/thehackersbrain/webhawk/main/screenshots/help_menu.png?token=AIY2SQO4TK5QZFOY6E7YSK3BMIJUI)
 
 
 ## About the Author
@@ -61,4 +61,3 @@ python main.py -h
 - [Instagram](https://www.instagram.com/thehackersbrain/)
 - [More Projects](https://github.com/thehackersbrain?tab=repositories)
 
----------
