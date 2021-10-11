@@ -14,6 +14,30 @@ Which was originally inspired by **RED_HAWK** tool which is not maintained by no
 
 
 ## Installation
+
+### Install using Pip3
+- Create a new Python Virtual Environment
+	```bash
+	python3 -m venv env
+	```
+- Activate the virtualenv
+	```bash
+	source env/bin/activate
+	```
+
+- Install and Run the tool
+	```bash
+	pip3 install webhawk && webhawk -h
+	```
+
+- Oneliner
+	```bash
+	python3 -m venv env && source env/bin/activate && pip3 install webhawk && webhawk -h
+	```
+
+
+### Run as Python Script
+
 - Clone this repo
 ```bash
 git clone https://github.com/thehackersbrain/webhawk.git
