@@ -5,7 +5,7 @@
 
 ## Description
 ![WebHawk Banner Image](https://raw.githubusercontent.com/thehackersbrain/webhawk/main/screenshots/webhawk.png?token=AIY2SQM2ACU5ZBBWXDLXCGDBMIGRG)
-**WebHawk** is a Web Recon framework written in Python3 by Gaurav Raj [TheHackersbrain](https://gauravraj.tech)
+<br/>**WebHawk** is a Web Recon framework written in Python3 by Gaurav Raj [TheHackersbrain](https://gauravraj.tech)
 
 Which was originally inspired by **RED_HAWK** tool which is not maintained by now.
 
@@ -39,41 +39,41 @@ Which was originally inspired by **RED_HAWK** tool which is not maintained by no
 ### Run as Python Script
 
 - Clone this repo
-```bash
-git clone https://github.com/thehackersbrain/webhawk.git
-```
+	```bash
+	git clone https://github.com/thehackersbrain/webhawk.git
+	```
 
 - change the directory
-```bash
-cd webhawk
-```
+	```bash
+	cd webhawk
+	```
 
 - Install required modules
-```bash
-pip3 install -r requirements.txt
-```
+	```bash
+	pip3 install -r requirements.txt
+	```
 
 - Run the `main.py` script
-```bash
-python main.py -h
-```
+	```bash
+	python main.py -h
+	```
 
 ## Uses
 - Basic Scan
 	```bash
-	python main.py -d 'gauravraj.tech'
+	webhawk -d 'gauravraj.tech'
 	```
 	![Basic Scan](https://raw.githubusercontent.com/thehackersbrain/webhawk/main/screenshots/webhawk.png?token=AIY2SQM2ACU5ZBBWXDLXCGDBMIGRG)
 
 - Subdomain Enumeration
 	```bash
-	python main.py -d 'gauravraj.tech' -s
+	webhawk -d 'gauravraj.tech' -s
 	```
 	![Subdomain Enumeration](https://raw.githubusercontent.com/thehackersbrain/webhawk/main/screenshots/subdomain.png?token=AIY2SQKNBZVQQ6SC4CPVJSLBMIJS2)
 
 - Help Menu
 	```bash
-	python main.py -h
+	webhawk -h
 	```
 	![Help Menu](https://raw.githubusercontent.com/thehackersbrain/webhawk/main/screenshots/help_menu.png?token=AIY2SQO4TK5QZFOY6E7YSK3BMIJUI)
 
