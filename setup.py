@@ -6,7 +6,7 @@ with open('README.md') as readme:
 
 setup(
     name='webhawk',
-    version='0.0.8',
+    version='0.0.9',
     description='Web Recon Framework',
     author='Gaurav Raj',
     url='https://github.com/thehackersbrain/webhawk',
