@@ -6,7 +6,7 @@ with open('README.md') as readme:
 
 setup(
     name='webhawk',
-    version='0.0.7',
+    version='0.0.8',
     description='Web Recon Framework',
     author='Gaurav Raj',
     url='https://github.com/thehackersbrain/webhawk',
@@ -14,9 +14,10 @@ setup(
     license='MIT',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    keywords=['webhawk', 'web', 'recon', 'hacking', 'python3', 'python', 'thehackersbrain', 'gaurav raj'],
+    keywords=['webhawk', 'web', 'recon', 'hacking',
+              'python3', 'python', 'thehackersbrain', 'gaurav raj'],
     packages=find_packages(),
     install_requires=['requests', 'rich', 'bs4'],
-    entry_points={'console_scripts':['webhawk=webhawk.src.__main__:main']},
+    entry_points={'console_scripts': ['webhawk=webhawk.src.__main__:main']},
     zip_safe=False,
 )
