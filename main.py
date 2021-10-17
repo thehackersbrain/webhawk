@@ -25,7 +25,7 @@ def scan_type(stype):
 
 def main():
     if (len(argv) == 2 and argv[1] == '-v'):
-        print("[bold green]Webhawk 0.1.1")
+        print("[bold green]Webhawk 0.1.2")
         exit(0)
 
     # Parsing Arguments
