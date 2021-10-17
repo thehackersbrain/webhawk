@@ -2,6 +2,7 @@
 
 from rich import print
 import argparse
+from sys import argv
 from functions import basic_scan, whois, dnslookup, geoiplookup, subnetcalc, subdomains, nmapscan
 
 
@@ -23,6 +24,10 @@ def scan_type(stype):
 
 
 def main():
+    if (argv[1] == '-v'):
+        print("[bold green]Webhawk 0.1.0")
+        exit(0)
+
     # Parsing Arguments
     parser = argparse.ArgumentParser(
         description="WebHawk - Web Recon Framework")
@@ -40,6 +45,8 @@ def main():
         "-s", "--subdomains", help="Find Available Subdomains for the Target's Domain", action="store_true")
     parser.add_argument(
         "-p", '--ports', help="Perform Nmap Scan on Target Domain's IP Address", action="store_true")
+    parser.add_argument("-v", "--version",
+                        help="Print Version of the Tool", action="store_true")
     args = parser.parse_args()
     banner()
     print(
