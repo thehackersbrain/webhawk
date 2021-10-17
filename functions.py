@@ -21,12 +21,20 @@ def basic_scan(domain):
     title = soup.find_all('title')
     print("[[bold yellow]+[/bold yellow]] [bold cyan]Site Title[/bold cyan]: [bold green]{}[/bold green]".format(title[0].get_text()))
     print("[[bold yellow]+[/bold yellow]] [bold cyan]IP Address[/bold cyan]: [bold green]{}[/bold green]".format(socket.gethostbyname(domain)))
-    print("[[bold yellow]+[/bold yellow]] [bold cyan]Server[/bold cyan]: [bold green]{}[/bold green]".format(req.headers['Server']))
+
+    try:
+        server = req.headers['Server']
+        print("[[bold yellow]+[/bold yellow]] [bold cyan]Server[/bold cyan]: [bold green]{}[/bold green]".format(server))
+        if (server == 'cloudflare'):
+            print(
+                "[[bold yellow]+[/bold yellow]] [bold cyan]Cloudflare[/bold cyan]: [bold green]Detected[/bold green]")
+        else:
+            print(
+                "[[bold yellow]+[/bold yellow]] [bold cyan]Cloudflare[/bold cyan]: [bold red]Not Detect[/bold red]")
+    except Exception as err:
+        print("[[bold yellow]+[/bold yellow]] [bold cyan]Server[/bold cyan]: [bold red]Not Detected[/bold red]")
+
     print("[[bold yellow]+[/bold yellow]] [bold cyan]CMS[/bold cyan]: [bold red]Could Not Detect[/bold red]")
-    if (req.headers['Server'] == 'cloudflare'):
-        print("[[bold yellow]+[/bold yellow]] [bold cyan]Cloudflare[/bold cyan]: [bold green]Detected[/bold green]")
-    else:
-        print("[[bold yellow]+[/bold yellow]] [bold cyan]Cloudflare[/bold cyan]: [bold red]Not Detect[/bold red]")
     rreq = requests.get(url+'/robots.txt')
     if(rreq.status_code != 404):
         print("[[bold yellow]+[/bold yellow]] [bold cyan]Robots.txt[/bold cyan]: [bold green]Found[/bold green]")
