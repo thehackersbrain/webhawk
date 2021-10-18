@@ -5,6 +5,7 @@ from rich import print
 from bs4 import BeautifulSoup
 import socket
 from webhawk.src.dependencies.subdomain.subdomains import subfinder
+import json
 
 
 def basic_scan(domain):
@@ -109,3 +110,21 @@ def nmapscan(domain):
     print(req.text)
     print(
         "--------------------------------[ [bold green]NMAP Scan Ends Here[/bold green] ]------------------------------------")
+
+
+def builtwith(domain):
+    with open('webhawk/src/data/config.json') as file_handler:
+        config = json.load(file_handler)
+    url = 'https://api.builtwith.com/v19/api.json?KEY={}&LOOKUP={}'.format(
+        config['builtwith-api'], domain)
+    req = requests.get(url)
+    data = req.json()
+    technologies = data['Results'][0]['Result']['Paths'][0]['Technologies']
+    print(
+        "------------------------------------ [ [bold green]Builtwith Recon[/bold green] ]------------------------------------")
+    sn = 0
+    for i in technologies:
+        print("[[bold green]+[/bold green]] {}".format(technologies[sn]['Name']))
+        sn += 1
+    print(
+        "------------------------------------ [ [bold green]Builtwith Recon[/bold green] ]------------------------------------")
