@@ -2,10 +2,13 @@
 
 import requests
 from rich import print
+from rich.prompt import Prompt
 from bs4 import BeautifulSoup
 import socket
 from dependencies.subdomain.subdomains import subfinder
 import json
+from rich.panel import Panel
+from rich.text import Text
 
 
 def basic_scan(domain):
@@ -128,3 +131,24 @@ def builtwith(domain):
         sn += 1
     print(
         "------------------------------------ [ [bold green]Builtwith Recon[/bold green] ]------------------------------------")
+
+
+def config():
+    banner = Text("Webhawk Configuration Wizard",
+                  justify='center', style='green bold underline')
+    print(Panel(banner))
+    print()
+    print("1. Builtwith API\n")
+    opt = input("> Choose Option: ")
+    builtwith_api = Prompt.ask("[bold green]Enter API Key[/bold green]")
+    if (int(opt) == 1):
+        with open('./data/config.json', 'r+') as config_file:
+            data = json.load(config_file)
+            data['builtwith-api'] = builtwith_api
+            config_file.seek(0)
+            json.dump(data, config_file, indent=4)
+            config_file.truncate()
+        exit()
+    else:
+        print("[bold red]Enter Valid Option[/bold red]")
+        exit(1)
