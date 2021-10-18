@@ -1,4 +1,5 @@
 from setuptools import setup, find_packages
+from webhawk import __version__
 
 with open('README.md') as readme:
     long_description = readme.read().strip()
@@ -6,7 +7,7 @@ with open('README.md') as readme:
 
 setup(
     name='webhawk',
-    version='0.1.2',
+    version=__version__,
     description='Web Recon Framework',
     author='Gaurav Raj',
     url='https://github.com/thehackersbrain/webhawk',
