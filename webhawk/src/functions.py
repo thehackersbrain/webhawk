@@ -142,7 +142,7 @@ def config():
     opt = input("> Choose Option: ")
     builtwith_api = Prompt.ask("[bold green]Enter API Key[/bold green]")
     if (int(opt) == 1):
-        with open('./data/config.json', 'r+') as config_file:
+        with open('webhawk/src/data/config.json', 'r+') as config_file:
             data = json.load(config_file)
             data['builtwith-api'] = builtwith_api
             config_file.seek(0)
