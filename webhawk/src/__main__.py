@@ -3,7 +3,8 @@
 from rich import print
 import argparse
 from sys import argv
-from webhawk.src.functions import basic_scan, whois, dnslookup, geoiplookup, subnetcalc, subdomains, nmapscan
+from webhawk.src.functions import basic_scan, whois, dnslookup, geoiplookup, subnetcalc, subdomains, nmapscan, builtwith
+from webhawk import __version__
 
 
 def banner():
@@ -25,7 +26,7 @@ def scan_type(stype):
 
 def main():
     if (len(argv) == 2 and argv[1] == '-v'):
-        print("[bold green]Webhawk 0.1.2[/bold green]")
+        print("[bold green]Webhawk {}[/bold green]".format(__version__))
         exit(0)
 
     # Parsing Arguments
@@ -45,6 +46,8 @@ def main():
         "-s", "--subdomains", help="Find Available Subdomains for the Target's Domain", action="store_true")
     parser.add_argument(
         "-p", '--ports', help="Perform Nmap Scan on Target Domain's IP Address", action="store_true")
+    parser.add_argument(
+        '-b', '--builtwith', help="Fire up a Builtwith Recon against the target domain", action="store_true")
     parser.add_argument("-v", "--version",
                         help="Print version of the Tool", action="store_true")
     args = parser.parse_args()
@@ -70,6 +73,9 @@ def main():
     elif(args.ports):
         scan_type('NMAP Scan')
         nmapscan(args.domain)
+    elif (args.builtwith):
+        scan_type('Builtwith Recon')
+        builtwith(args.domain)
     else:
         scan_type('Basic Scan')
         basic_scan(args.domain)
