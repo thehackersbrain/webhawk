@@ -20,6 +20,6 @@ setup(
     packages=find_packages(),
     package_data={"": ["data/*"]},
     install_requires=['requests', 'rich', 'bs4'],
-    entry_points={'console_scripts': ['webhawk=webhawk.__main__:main']},
+    entry_points={'console_scripts': ['webhawk=webhawk.src.__main__:main']},
     zip_safe=False,
 )
