@@ -3,7 +3,7 @@
 from rich import print
 import argparse
 from sys import argv
-from functions import basic_scan, whois, dnslookup, geoiplookup, subnetcalc, subdomains, nmapscan
+from functions import basic_scan, builtwith, whois, dnslookup, geoiplookup, subnetcalc, subdomains, nmapscan
 
 
 def banner():
@@ -45,6 +45,8 @@ def main():
         "-s", "--subdomains", help="Find Available Subdomains for the Target's Domain", action="store_true")
     parser.add_argument(
         "-p", '--ports', help="Perform Nmap Scan on Target Domain's IP Address", action="store_true")
+    parser.add_argument(
+        "-b", "--builtwith", help="Fire up a Builtwith Recon against the target domain.", action="store_true")
     parser.add_argument("-v", "--version",
                         help="Print Version of the Tool", action="store_true")
     args = parser.parse_args()
@@ -70,6 +72,9 @@ def main():
     elif(args.ports):
         scan_type('NMAP Scan')
         nmapscan(args.domain)
+    elif (args.builtwith):
+        scan_type('Builtwith Recon')
+        builtwith(args.domain)
     else:
         scan_type('Basic Scan')
         basic_scan(args.domain)
