@@ -3,7 +3,7 @@
 from rich import print
 import argparse
 from sys import argv
-from functions import basic_scan, builtwith, whois, dnslookup, geoiplookup, subnetcalc, subdomains, nmapscan
+from functions import basic_scan, builtwith, config, whois, dnslookup, geoiplookup, subnetcalc, subdomains, nmapscan
 
 
 def banner():
@@ -25,8 +25,10 @@ def scan_type(stype):
 
 def main():
     if (len(argv) == 2 and argv[1] == '-v'):
-        print("[bold green]Webhawk 0.1.2")
+        print("[bold green]Webhawk 0.1.4[/bold green]")
         exit(0)
+    elif (len(argv) == 2 and argv[1] == '--config'):
+        config()
 
     # Parsing Arguments
     parser = argparse.ArgumentParser(
@@ -47,6 +49,8 @@ def main():
         "-p", '--ports', help="Perform Nmap Scan on Target Domain's IP Address", action="store_true")
     parser.add_argument(
         "-b", "--builtwith", help="Fire up a Builtwith Recon against the target domain.", action="store_true")
+    parser.add_argument(
+        "--config", help="Configure Webhawk for API Uses", action="store_true")
     parser.add_argument("-v", "--version",
                         help="Print Version of the Tool", action="store_true")
     args = parser.parse_args()
