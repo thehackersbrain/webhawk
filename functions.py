@@ -35,7 +35,7 @@ def basic_scan(domain):
         else:
             print(
                 "[[bold yellow]+[/bold yellow]] [bold cyan]Cloudflare[/bold cyan]: [bold red]Not Detect[/bold red]")
-    except Exception as err:
+    except Exception:
         print("[[bold yellow]+[/bold yellow]] [bold cyan]Server[/bold cyan]: [bold red]Not Detected[/bold red]")
 
     print("[[bold yellow]+[/bold yellow]] [bold cyan]CMS[/bold cyan]: [bold red]Could Not Detect[/bold red]")
@@ -126,7 +126,7 @@ def builtwith(domain):
     print(
         "------------------------------------ [ [bold green]Builtwith Recon[/bold green] ]------------------------------------")
     sn = 0
-    for i in technologies:
+    for _ in technologies:
         print("[[bold green]+[/bold green]] {}".format(technologies[sn]['Name']))
         sn += 1
     print(
