@@ -6,6 +6,7 @@ from rich.prompt import Prompt
 from bs4 import BeautifulSoup
 import socket
 from dependencies.subdomain.subdomains import subfinder
+from dependencies.cmsdetector.cmsdetector import scan
 import json
 from rich.panel import Panel
 from rich.text import Text
@@ -38,7 +39,12 @@ def basic_scan(domain):
     except Exception:
         print("[[bold yellow]+[/bold yellow]] [bold cyan]Server[/bold cyan]: [bold red]Not Detected[/bold red]")
 
-    print("[[bold yellow]+[/bold yellow]] [bold cyan]CMS[/bold cyan]: [bold red]Could Not Detect[/bold red]")
+    cms = scan(url)
+    if (cms != None):
+        print("[[bold yellow]+[/bold yellow]] [bold cyan]CMS[/bold cyan]: [bold green]{}[/bold green]".format(cms))
+    else:
+        print("[[bold yellow]+[/bold yellow]] [bold cyan]CMS[/bold cyan]: [bold red]Not Detected[/bold red]")
+
     rreq = requests.get(url+'/robots.txt')
     if(rreq.status_code != 404):
         print("[[bold yellow]+[/bold yellow]] [bold cyan]Robots.txt[/bold cyan]: [bold green]Found[/bold green]")
