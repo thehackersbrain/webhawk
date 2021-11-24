@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 import requests
 from rich import print
 from rich.prompt import Prompt

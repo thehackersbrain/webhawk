@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 from rich import print
 import argparse
 from sys import argv
