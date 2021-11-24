@@ -64,29 +64,7 @@ Which was originally inspired by **RED_HAWK** tool which is not maintained by no
   python main.py -h
   ```
 
-## Uses
-
-- Basic Scan
-
-  ```bash
-  webhawk -d 'gauravraj.tech'
-  ```
-
-  ![Basic Scan](https://raw.githubusercontent.com/thehackersbrain/webhawk/main/screenshots/webhawk.png?token=AIY2SQM2ACU5ZBBWXDLXCGDBMIGRG)
-
-- Subdomain Enumeration
-
-  ```bash
-  webhawk -d 'gauravraj.tech' -s
-  ```
-
-  ![Subdomain Enumeration](https://raw.githubusercontent.com/thehackersbrain/webhawk/main/screenshots/subdomain.png?token=AIY2SQKNBZVQQ6SC4CPVJSLBMIJS2)
-
-- Help Menu
-  ```bash
-  webhawk -h
-  ```
-  ![Help Menu](https://raw.githubusercontent.com/thehackersbrain/webhawk/main/screenshots/help_menu.png?token=AIY2SQO4TK5QZFOY6E7YSK3BMIJUI)
+Head over to the [wiki](#) for uses and getting familiar with the tool.
 
 ## About the Author
 
