@@ -64,7 +64,7 @@ Which was originally inspired by **RED_HAWK** tool which is not maintained by no
   python main.py -h
   ```
 
-Head over to the [wiki](#) for uses and getting familiar with the tool.
+Head over to the [wiki](https://github.com/thehackersbrain/webhawk/wiki) for uses and getting familiar with the tool.
 
 ## About the Author
 
