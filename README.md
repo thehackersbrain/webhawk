@@ -2,7 +2,7 @@
 
 > Web Recon Framework written in Python3
 
-----
+---
 
 [![CodeQL](https://github.com/thehackersbrain/webhawk/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/thehackersbrain/webhawk/actions/workflows/codeql-analysis.yml)
 
@@ -16,7 +16,7 @@ Which was originally inspired by **RED_HAWK** tool which is not maintained by no
 
 ## Version
 
-**Webhawk 0.6.4**
+**Webhawk 0.8.0**
 
 ## Installation
 
