@@ -53,10 +53,13 @@ def basic_scan(domain):
     print(
         "--------------------------------[ [bold green]End of Headers[/bold green] ]------------------------------------")
 
+
 def read_json(path: str):
-    fullpath = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data/" + path)
+    fullpath = os.path.join(os.path.dirname(
+        os.path.abspath(__file__)), "data/" + path)
     with open(fullpath, "rb") as myfile:
         return json.loads(myfile.read())
+
 
 def whois(domain):
     url = "https://www.whois.com/whois/{}".format(domain)
@@ -149,7 +152,9 @@ def config():
     opt = input("> Choose Option: ")
     builtwith_api = Prompt.ask("[bold green]Enter API Key[/bold green]")
     if (int(opt) == 1):
-        with open('webhawk/src/data/config.json', 'r+') as config_file:
+        fullpath = os.path.join(os.path.dirname(
+            os.path.abspath(__file__)), "data/config.json")
+        with open(fullpath, 'r+') as config_file:
             data = json.load(config_file)
             data['builtwith-api'] = builtwith_api
             config_file.seek(0)
