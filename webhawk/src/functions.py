@@ -8,6 +8,7 @@ import socket
 from webhawk.src.dependencies.subdomain.subdomains import subfinder
 from webhawk.src.dependencies.cmsdetector.cmsdetector import scan
 import json
+import os.path
 
 
 def basic_scan(domain):
@@ -52,6 +53,10 @@ def basic_scan(domain):
     print(
         "--------------------------------[ [bold green]End of Headers[/bold green] ]------------------------------------")
 
+def read_json(path: str):
+    fullpath = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data/" + path)
+    with open(fullpath, "rb") as myfile:
+        return json.loads(myfile.read())
 
 def whois(domain):
     url = "https://www.whois.com/whois/{}".format(domain)
@@ -119,9 +124,8 @@ def nmapscan(domain):
 
 
 def builtwith(domain):
-    with open('webhawk/src/data/config.json') as file_handler:
-        config = json.load(file_handler)
-    url = 'https://api.builtwith.com/v19/api.json?KEY={}&LOOKUP={}'.format(
+    config = read_json("config.json")
+   url = 'https://api.builtwith.com/v19/api.json?KEY={}&LOOKUP={}'.format(
         config['builtwith-api'], domain)
     req = requests.get(url)
     data = req.json()
