@@ -2,6 +2,10 @@
 
 > Web Recon Framework written in Python3
 
+----
+
+[![CodeQL](https://github.com/thehackersbrain/webhawk/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/thehackersbrain/webhawk/actions/workflows/codeql-analysis.yml)
+
 ## Description
 
 ![WebHawk Banner Image](https://raw.githubusercontent.com/thehackersbrain/webhawk/main/screenshots/webhawk.png?token=AIY2SQM2ACU5ZBBWXDLXCGDBMIGRG)
