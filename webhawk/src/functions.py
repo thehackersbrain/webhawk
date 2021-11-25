@@ -125,7 +125,7 @@ def nmapscan(domain):
 
 def builtwith(domain):
     config = read_json("config.json")
-   url = 'https://api.builtwith.com/v19/api.json?KEY={}&LOOKUP={}'.format(
+    url = 'https://api.builtwith.com/v19/api.json?KEY={}&LOOKUP={}'.format(
         config['builtwith-api'], domain)
     req = requests.get(url)
     data = req.json()
