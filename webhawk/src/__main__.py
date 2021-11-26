@@ -24,7 +24,7 @@ def scan_type(stype):
 
 def main():
     if (len(argv) == 2 and argv[1] == '-v'):
-        print("[bold green]Webhawk {}[/bold green]".format(__version__))
+        print("[bold green]Webhawk v{}[/bold green]".format(__version__))
         exit(0)
     elif (len(argv) == 2 and argv[1] == '--config'):
         config()
@@ -85,3 +85,12 @@ def main():
 
 if __name__ == "__main__":
     main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        exit(1)
+    except EOFError:
+        exit(1)
+    except Exception as err:
+        print(
+            "[[bold red]-[/bold red]] Unexpected Error Encountered !!!\n\n{}".format(err))
