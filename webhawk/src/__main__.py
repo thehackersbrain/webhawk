@@ -24,7 +24,7 @@ def scan_type(stype):
 
 def main():
     if (len(argv) == 2 and argv[1] == '-v'):
-        print("[bold green]Webhawk v{}[/bold green]".format(__version__))
+        print("[bold green]Webhawk {}[/bold green]".format(__version__))
         exit(0)
     elif (len(argv) == 2 and argv[1] == '--config'):
         config()
