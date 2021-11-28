@@ -3,6 +3,7 @@ import argparse
 from sys import argv
 from webhawk.src.functions import basic_scan, whois, dnslookup, geoiplookup, subnetcalc, subdomains, nmapscan, builtwith, config
 from webhawk import __version__
+import re
 
 
 def banner():
@@ -20,6 +21,21 @@ def banner():
 
 def scan_type(stype):
     print(" [[bold green]S[/bold green]] Scan Type: [[bold green]{}[/bold green]]\n".format(stype))
+
+
+def validator(domain):
+    if (domain.startswith('https://')):
+        domain = domain[8:]
+    elif (domain.startswith('http://')):
+        domain = domain[7:]
+
+    if ("/" in domain):
+        domain = domain.split("/")[0]
+
+    regex = "^((?!-)[A-Za-z0-9-]" + "{1,63}(?<!-)\\.)" + "+[A-Za-z]{2,6}"
+    dmnregex = re.compile(regex)
+    if (re.search(dmnregex, domain)):
+        return domain
 
 
 def main():
@@ -54,33 +70,34 @@ def main():
                         help="Print version of the Tool", action="store_true")
     args = parser.parse_args()
     banner()
+    domain = validator(args.domain)
     print(
-        "                            [[bold green]+[/bold green]] Target Domain: [bold green]{}[/bold green]\n".format(args.domain))
+        "                            [[bold green]+[/bold green]] Target Domain: [bold green]{}[/bold green]\n".format(domain))
     print(" [[bold green]*[/bold green]] [bold green]Scanning Started...[/bold green]")
     if(args.whois):
         scan_type('Whois Recon')
-        whois(args.domain)
+        whois(domain)
     elif(args.lookup):
         scan_type('DNS Lookup')
-        dnslookup(args.domain)
+        dnslookup(domain)
     elif(args.geoip):
         scan_type('GEO-IP Lookup')
-        geoiplookup(args.domain)
+        geoiplookup(domain)
     elif(args.subnet):
         scan_type('Subnet Calculator')
-        subnetcalc(args.domain)
+        subnetcalc(domain)
     elif(args.subdomains):
         scan_type('Subdomains Finder')
-        subdomains(args.domain)
+        subdomains(domain)
     elif(args.ports):
         scan_type('NMAP Scan')
-        nmapscan(args.domain)
+        nmapscan(domain)
     elif (args.builtwith):
         scan_type('Builtwith Recon')
-        builtwith(args.domain)
+        builtwith(domain)
     else:
         scan_type('Basic Scan')
-        basic_scan(args.domain)
+        basic_scan(domain)
 
 
 if __name__ == "__main__":
