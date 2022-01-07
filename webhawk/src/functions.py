@@ -7,6 +7,7 @@ from bs4 import BeautifulSoup
 import socket
 from webhawk.src.dependencies.subdomain.subdomains import subfinder
 from webhawk.src.dependencies.cmsdetector.cmsdetector import scan
+from webhawk.src.dependencies.linkparser.linkparser import parserr
 import json
 import os.path
 
@@ -35,7 +36,7 @@ def basic_scan(domain):
         else:
             print(
                 "[[bold yellow]+[/bold yellow]] [bold cyan]Cloudflare[/bold cyan]: [bold red]Not Detect[/bold red]")
-    except Exception as err:
+    except Exception as _:
         print("[[bold yellow]+[/bold yellow]] [bold cyan]Server[/bold cyan]: [bold red]Not Detected[/bold red]")
 
     cms = scan(url)
@@ -136,11 +137,22 @@ def builtwith(domain):
     print(
         "------------------------------------ [ [bold green]Builtwith Recon[/bold green] ]------------------------------------")
     sn = 0
-    for i in technologies:
+    for _ in technologies:
         print("[[bold green]+[/bold green]] {}".format(technologies[sn]['Name']))
         sn += 1
     print(
         "------------------------------------ [ [bold green]Builtwith Recon[/bold green] ]------------------------------------")
+
+
+def linkparse(domain):
+    print(
+        "------------------------------------ [ [bold green]Link Parser[/bold green] ]------------------------------------")
+    links = parserr(domain)
+    for i in links:
+        print("[[bold green]+[/bold green]] Link: [green]{}[/green]".format(i))
+        print("\n\t[[bold green]+[/bold green]] Total Links: {}".format(len(links)))
+    print(
+        "------------------------------------ [ [bold green]Link Parser[/bold green] ]------------------------------------")
 
 
 def config():
