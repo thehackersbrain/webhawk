@@ -1,7 +1,7 @@
 from rich import print
 import argparse
 from sys import argv
-from webhawk.src.functions import basic_scan, whois, dnslookup, geoiplookup, subnetcalc, subdomains, nmapscan, builtwith, config
+from webhawk.src.functions import basic_scan, whois, dnslookup, geoiplookup, subnetcalc, subdomains, nmapscan, builtwith, linkparse, config
 from webhawk import __version__
 import re
 
@@ -55,6 +55,8 @@ def main():
     parser.add_argument(
         "-l", "--lookup", help="DNS Lookup for the Target Domain", action="store_true")
     parser.add_argument(
+        '-L', '--links', help="Grab All the Links Available on the Page", action="store_true")
+    parser.add_argument(
         "-g", "--geoip", help="GEO-IP Lookup on the Target's IP", action="store_true")
     parser.add_argument(
         "-n", "--subnet", help="Subnet Calculator for Target Domain's IP Address", action="store_true")
@@ -95,6 +97,9 @@ def main():
     elif (args.builtwith):
         scan_type('Builtwith Recon')
         builtwith(domain)
+    elif (args.links):
+        scan_type('Link Parser')
+        linkparse(domain)
     else:
         scan_type('Basic Scan')
         basic_scan(domain)
