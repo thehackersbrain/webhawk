@@ -150,7 +150,7 @@ def linkparse(domain):
     links = parserr(domain)
     for i in links:
         print("[[bold green]+[/bold green]] Link: [green]{}[/green]".format(i))
-        print("\n\t[[bold green]+[/bold green]] Total Links: {}".format(len(links)))
+    print("\n\t[[bold green]+[/bold green]] Total Links: {}".format(len(links)))
     print(
         "------------------------------------ [ [bold green]Link Parser[/bold green] ]------------------------------------")
 
