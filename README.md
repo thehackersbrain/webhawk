@@ -72,8 +72,8 @@ Head over to the [wiki](https://github.com/thehackersbrain/webhawk/wiki) for use
 
 ## About the Author
 
-- [Portfolio](https://gauravraj.tech/)
-- [Blog](https://blog.gauravraj.tech/)
+- [Portfolio](https://thehackersbrain.github.io/)
+- [Blog](https://thehackersbrain.github.io/blog/)
 - [Github](https://github.com/thehackersbrain)
 - [Twitter](https://twitter.com/thehackersbrain/)
 - [LinkedIn](https://linkedin.com/in/thehackersbrain/)
