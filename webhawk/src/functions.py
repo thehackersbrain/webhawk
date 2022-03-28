@@ -155,6 +155,22 @@ def linkparse(domain):
         "------------------------------------ [ [bold green]Link Parser[/bold green] ]------------------------------------")
 
 
+def all_scans(domain):
+    print(
+        "------------------------------------ [ [bold green]All Scans[/bold green] ]------------------------------------")
+    basic_scan(domain)
+    whois(domain)
+    dnslookup(domain)
+    geoiplookup(domain)
+    subnetcalc(domain)
+    subdomains(domain)
+    nmapscan(domain)
+    builtwith(domain)
+    linkparse(domain)
+    print(
+        "------------------------------------ [ [bold green]All Scans[/bold green] ]------------------------------------")
+
+
 def config():
     banner = Text("Webhawk Configuration Wizard",
                   justify='center', style='green bold underline')
