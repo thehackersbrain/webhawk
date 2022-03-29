@@ -51,7 +51,7 @@ def main():
     parser.add_argument(
         "-d", "--domain", help="Specify Target Domain", required=True)
     parser.add_argument(
-        "-a", help="Run all scans at once, Show me what you can :)", action="store_true")
+        "-a", "--all", help="Run all scans at once, Show me what you can :)", action="store_true")
     parser.add_argument(
         "-w", "--whois", help="Extract Whois Information for The Target Domain.", action="store_true")
     parser.add_argument(
