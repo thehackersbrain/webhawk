@@ -1,7 +1,7 @@
 from rich import print
 import argparse
 from sys import argv
-from webhawk.src.functions import basic_scan, whois, dnslookup, geoiplookup, subnetcalc, subdomains, nmapscan, builtwith, linkparse, config
+from webhawk.src.functions import basic_scan, whois, dnslookup, geoiplookup, subnetcalc, subdomains, nmapscan, builtwith, linkparse, all_scans, config
 from webhawk import __version__
 import re
 
@@ -50,6 +50,8 @@ def main():
         description="WebHawk - Web Recon Framework")
     parser.add_argument(
         "-d", "--domain", help="Specify Target Domain", required=True)
+    parser.add_argument(
+        "-a", "--all", help="Run all scans at once, Show me what you can :)", action="store_true")
     parser.add_argument(
         "-w", "--whois", help="Extract Whois Information for The Target Domain.", action="store_true")
     parser.add_argument(
@@ -100,6 +102,9 @@ def main():
     elif (args.links):
         scan_type('Link Parser')
         linkparse(domain)
+    elif (args.all):
+        scan_type('All Scans')
+        all_scans(domain)
     else:
         scan_type('Basic Scan')
         basic_scan(domain)
