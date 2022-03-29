@@ -16,7 +16,7 @@ Which was originally inspired by **RED_HAWK** tool which is not maintained by no
 
 ## Version
 
-**Webhawk v1.0.1**
+**Webhawk v1.1.6**
 
 ## Installation
 
@@ -41,6 +41,31 @@ Which was originally inspired by **RED_HAWK** tool which is not maintained by no
 - Oneliner
   ```bash
   python3 -m venv env && source env/bin/activate && pip3 install webhawk && webhawk -h
+  ```
+
+### Install using this repository
+
+- Git clone the repository
+
+  ```bash
+  git clone https://github.com/thehackersbrain/webhawk.git
+  ```
+
+- Change the directory to `webhawk`
+
+  ```bash
+  cd webhawk
+  ```
+
+- Install the tool using `**pip3**`
+
+  ```bash
+  pip3 install -e .
+  ```
+
+- Oneliner
+  ```bash
+  git clone https://github.com/thehackersbrain/webhawk.git && cd webhawk && pip3 install -e . && webhawk -v
   ```
 
 ### Run as Python Script
