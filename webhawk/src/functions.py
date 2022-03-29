@@ -158,15 +158,69 @@ def linkparse(domain):
 def all_scans(domain):
     print(
         "------------------------------------ [ [bold green]All Scans[/bold green] ]------------------------------------")
-    basic_scan(domain)
-    whois(domain)
-    dnslookup(domain)
-    geoiplookup(domain)
-    subnetcalc(domain)
-    subdomains(domain)
-    nmapscan(domain)
-    builtwith(domain)
-    linkparse(domain)
+    try:
+        basic_scan(domain)
+        print()
+    except Exception as _:
+        print(
+            "[[bold red]-[/bold red]] Unexpected Error Encountered!\n[[bold red]-[/bold red]] Basic Scans failed to Run...")
+        pass
+    try:
+        whois(domain)
+        print()
+    except Exception as _:
+        print(
+            "[[bold red]-[/bold red]] Unexpected Error Encountered!\n[[bold red]-[/bold red]] Whois Scan failed to Run...")
+        pass
+    try:
+        dnslookup(domain)
+        print()
+    except Exception as _:
+        print(
+            "[[bold red]-[/bold red]] Unexpected Error Encountered!\n[[bold red]-[/bold red]] DNSLookup Scan failed to Run...")
+        pass
+    try:
+        geoiplookup(domain)
+        print()
+    except Exception as _:
+        print(
+            "[[bold red]-[/bold red]] Unexpected Error Encountered!\n[[bold red]-[/bold red]] GeoIPLookup Scan failed to Run...")
+        pass
+    try:
+        subnetcalc(domain)
+        print()
+    except Exception as _:
+        print(
+            "[[bold red]-[/bold red]] Unexpected Error Encountered!\n[[bold red]-[/bold red]] Subnet Calculator Scan failed to Run...")
+        pass
+    try:
+        subdomains(domain)
+        print()
+    except Exception as _:
+        print(
+            "[[bold red]-[/bold red]] Unexpected Error Encountered!\n[[bold red]-[/bold red]] Subdomain Scan failed to Run...")
+        pass
+    try:
+        nmapscan(domain)
+        print()
+    except Exception as _:
+        print(
+            "[[bold red]-[/bold red]] Unexpected Error Encountered!\n[[bold red]-[/bold red]] Nmap Scan failed to Run...")
+        pass
+    try:
+        builtwith(domain)
+        print()
+    except Exception as _:
+        print(
+            "[[bold red]-[/bold red]] Unexpected Error Encountered!\n[[bold red]-[/bold red]] BuiltWith Scan failed to Run...")
+        pass
+    try:
+        linkparse(domain)
+        print()
+    except Exception as _:
+        print(
+            "[[bold red]-[/bold red]] Unexpected Error Encountered!\n[[bold red]-[/bold red]] LinkParser failed to Run...")
+        pass
     print(
         "------------------------------------ [ [bold green]All Scans[/bold green] ]------------------------------------")
 
