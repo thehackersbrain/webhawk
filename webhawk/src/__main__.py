@@ -69,6 +69,8 @@ def main():
     parser.add_argument(
         '-b', '--builtwith', help="Fire up a Builtwith Recon against the target domain", action="store_true")
     parser.add_argument(
+        '-o', '--output', help='Store output in specified file')
+    parser.add_argument(
         "--config", help='Configure Webhawk for API Uses', action="store_true")
     parser.add_argument("-v", "--version",
                         help="Print version of the Tool", action="store_true")
@@ -92,7 +94,7 @@ def main():
         subnetcalc(domain)
     elif(args.subdomains):
         scan_type('Subdomains Finder')
-        subdomains(domain)
+        subdomains(domain, args.output)
     elif(args.ports):
         scan_type('NMAP Scan')
         nmapscan(domain)
