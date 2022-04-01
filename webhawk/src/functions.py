@@ -106,8 +106,8 @@ def subnetcalc(domain):
         "------------------------------------[ [bold green]Content Ends Here[/bold green] ]------------------------------------")
 
 
-def subdomains(domain):
-    subdomains = subfinder(domain)
+def subdomains(domain, outfile):
+    subdomains = subfinder(domain, outfile)
     print(
         "------------------------------------[ [bold green]Subdomain Finder[/bold green] ]------------------------------------")
     for i in subdomains:

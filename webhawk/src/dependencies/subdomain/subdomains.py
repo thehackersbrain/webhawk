@@ -26,7 +26,7 @@ def hackertarget(domain):
     return subdomains
 
 
-def subfinder(domain):
+def subfinder(domain, outfile):
     crtsh_domains = crtsh(domain)
     hackertarget_domains = hackertarget(domain)
     found_data = crtsh_domains+hackertarget_domains
@@ -35,4 +35,8 @@ def subfinder(domain):
         if (i not in subdomains):
             subdomains.append(i)
 
+    if (outfile != None):
+        with open(outfile, 'a') as fh:
+            for i in subdomains:
+                fh.write('{}\n'.format(str(i)))
     return subdomains
