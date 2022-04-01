@@ -110,8 +110,9 @@ def subdomains(domain, outfile):
     subdomains = subfinder(domain, outfile)
     print(
         "------------------------------------[ [bold green]Subdomain Finder[/bold green] ]------------------------------------")
-    for i in subdomains:
+    for i in subdomains[0]:
         print("[[bold green]+[/bold green]] {}".format(i))
+    print("\n [[bold yellow]*[/bold yellow]] Total: {} Subdomains Found !".format(subdomains[1]))
     print(
         "------------------------------------[ [bold green]Subdomain Finder[/bold green] ]------------------------------------")
 

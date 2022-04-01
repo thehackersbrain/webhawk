@@ -39,4 +39,5 @@ def subfinder(domain, outfile):
         with open(outfile, 'a') as fh:
             for i in subdomains:
                 fh.write('{}\n'.format(str(i)))
-    return subdomains
+    subdomainsData = [subdomains, len(subdomains)]
+    return subdomainsData
