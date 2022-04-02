@@ -8,6 +8,7 @@ import socket
 from webhawk.src.dependencies.subdomain.subdomains import subfinder
 from webhawk.src.dependencies.cmsdetector.cmsdetector import scan
 from webhawk.src.dependencies.linkparser.linkparser import parserr
+from webhawk.src.dependencies.asnlook.asnlookup import asnlookup
 import json
 import os.path
 
@@ -156,7 +157,15 @@ def linkparse(domain):
         "------------------------------------ [ [bold green]Link Parser[/bold green] ]------------------------------------")
 
 
-def all_scans(domain):
+def asnlook(asnnum):
+    print(
+        "------------------------------------ [ [bold green]ASN Lookup[/bold green] ]------------------------------------")
+    print(asnlookup(asnnum))
+    print(
+        "------------------------------------ [ [bold green]ASN Lookup[/bold green] ]------------------------------------")
+
+
+def all_scans(domain, outfile):
     print(
         "------------------------------------ [ [bold green]All Scans[/bold green] ]------------------------------------")
     try:
@@ -195,7 +204,7 @@ def all_scans(domain):
             "[[bold red]-[/bold red]] Unexpected Error Encountered!\n[[bold red]-[/bold red]] Subnet Calculator Scan failed to Run...")
         pass
     try:
-        subdomains(domain)
+        subdomains(domain, outfile)
         print()
     except Exception as _:
         print(
