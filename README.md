@@ -16,7 +16,7 @@ Which was originally inspired by **RED_HAWK** tool which is not maintained by no
 
 ## Version
 
-**Webhawk v1.3.3**
+**Webhawk v1.4.5**
 
 ## Installation
 
