@@ -1,7 +1,7 @@
 from rich import print
 import argparse
 from sys import argv
-from webhawk.src.functions import basic_scan, whois, dnslookup, geoiplookup, subnetcalc, subdomains, nmapscan, builtwith, linkparse, all_scans, config
+from webhawk.src.functions import basic_scan, whois, dnslookup, geoiplookup, subnetcalc, subdomains, nmapscan, builtwith, linkparse, asnlook, all_scans, config
 from webhawk import __version__
 import re
 
@@ -68,6 +68,7 @@ def main():
         "-p", '--ports', help="Perform Nmap Scan on Target Domain's IP Address", action="store_true")
     parser.add_argument(
         '-b', '--builtwith', help="Fire up a Builtwith Recon against the target domain", action="store_true")
+    parser.add_argument('--asn', help='ASNLookup for a ASN Number')
     parser.add_argument(
         '-o', '--output', help='Store output in specified file')
     parser.add_argument(
@@ -104,9 +105,12 @@ def main():
     elif (args.links):
         scan_type('Link Parser')
         linkparse(domain)
+    elif (args.asn != None):
+        scan_type('ASN Lookup')
+        asnlook(args.asn)
     elif (args.all):
         scan_type('All Scans')
-        all_scans(domain)
+        all_scans(domain, args.output)
     else:
         scan_type('Basic Scan')
         basic_scan(domain)
